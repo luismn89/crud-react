@@ -1,0 +1,11 @@
+.task {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

@@ -1,0 +1,41 @@
+.task-list {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 5px 0 5px gray;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  transition: all 0.5s ease;
+  &--middle {
+    width: 70%;
+  }
+  &__list-header {
+    display: flex;
+    padding-bottom: 15px;
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+    & div:first-child {
+      width: 75px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: space-between;
+    & div:first-child {
+      width: 75px;
+    }
+    & div:last-child {
+      width: 190px;
+      text-align: right;
+      & button {
+        margin-right: 10px;
+      }
+    }
+    & p {
+      width: 70%;
+    }
+  }
+}

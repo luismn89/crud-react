@@ -1,0 +1,22 @@
+.btn {
+  outline: none;
+  width: 75px;
+  height: 30px;
+  border: none;
+  border-radius: 0.5em;
+  color: white;
+  cursor: pointer;
+  &--add {
+    background-color: green;
+  }
+  &--edit {
+    background-color: darkcyan;
+  }
+  &--delete {
+    background-color: red;
+  }
+  &--cancel {
+    background-color: silver;
+    color: black;
+  }
+}

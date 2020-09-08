@@ -1,21 +1,22 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-const Header = ({ formActive, setFormActive, setTypeForm }) => {
+const Header = () => {
   const dispatch = useDispatch();
+  const { activeForm } = useSelector((stage) => stage);
   return (
     <section className="task__header">
       <h1>Listado de Tareas</h1>
       <button
         type="button"
-        className={`btn ${formActive ? "btn--cancel" : "btn--add"}`}
+        className={`btn ${activeForm ? "btn--cancel" : "btn--add"}`}
         onClick={() => {
-          setFormActive(!formActive);
-          setTypeForm("add");
+          dispatch({ type: "ACTIVE_FORM", payload: !activeForm });
+          dispatch({ type: "SET_TYPE_FORM", payload: "add" });
           dispatch({ type: "SET_INDEX_EDIT_TASK", payload: null });
         }}
       >
-        {formActive ? "Cancelar" : "Agregar"}
+        {activeForm ? "Cancelar" : "Agregar"}
       </button>
     </section>
   );

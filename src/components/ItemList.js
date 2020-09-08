@@ -1,19 +1,8 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import Item from "./Item";
 
-const ItemList = ({ setTypeForm, setFormActive }) => {
-  const dispatch = useDispatch();
-
-  const deleteItem = (ind) =>
-    dispatch({ type: "DELETE_TASK_LIST", payload: ind });
-
-  const editItem = (ind) => {
-    setTypeForm("edit");
-    dispatch({ type: "SET_INDEX_EDIT_TASK", payload: ind });
-    setFormActive(true);
-  };
-
+const ItemList = () => {
   const taskList = useSelector(({ taskList }) => taskList);
 
   return (
@@ -24,7 +13,7 @@ const ItemList = ({ setTypeForm, setFormActive }) => {
       </div>
       {taskList &&
         taskList.map((data, index) => (
-          <Item key={index} {...{ data, index, deleteItem, editItem }} />
+          <Item key={index} {...{ data, index }} />
         ))}
     </>
   );

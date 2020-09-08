@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-const Form = ({ typeForm, setFormActive }) => {
+const Form = () => {
   const dispatch = useDispatch();
-  const { taskList, indexTaskSelect } = useSelector((state) => state);
+  const { taskList, indexTaskSelect, typeForm } = useSelector((state) => state);
 
   const isAdd = typeForm === "add";
   const [newData, setNewData] = useState({ description: "" });
@@ -15,20 +15,22 @@ const Form = ({ typeForm, setFormActive }) => {
       payload: newData,
     });
     setNewData({ description: "" });
-    setFormActive(false);
+    dispatch({ type: "ACTIVE_FORM", payload: false });
   };
 
   const editItem = (evt) => {
     evt.preventDefault();
     dispatch({ type: "EDIT_TASK_LIST", payload: newData });
     setNewData({ description: "" });
-    setFormActive(false);
+    dispatch({ type: "ACTIVE_FORM", payload: false });
   };
 
   const editValue =
-    indexTaskSelect !== null ? taskList[indexTaskSelect].description : "";
+    indexTaskSelect !== null && taskList[indexTaskSelect]
+      ? taskList[indexTaskSelect]
+      : "";
 
-  const initValue = isAdd ? newData.description : editValue;
+  const initValue = isAdd ? newData.description : editValue.description;
 
   return (
     <form

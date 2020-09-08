@@ -1,26 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 
 import Header from "./Header";
 import ItemList from "./ItemList";
 import Form from "./Form";
 
 const Tasks = () => {
-  const [formActive, setFormActive] = useState(false);
-  const [typeForm, setTypeForm] = useState("");
+  const { activeForm } = useSelector((stage) => stage);
 
   return (
     <>
-      <div className={`task-list ${formActive ? "task-list--middle" : ""}`}>
-        <Header {...{ formActive, setFormActive, setTypeForm }} />
-        <ItemList
-          {...{
-            setTypeForm,
-            setFormActive,
-          }}
-        />
+      <div className={`task-list ${activeForm ? "task-list--middle" : ""}`}>
+        <Header />
+        <ItemList />
       </div>
       <div className="task-formContainer">
-        <Form {...{ typeForm, setFormActive }} />
+        <Form />
       </div>
     </>
   );
