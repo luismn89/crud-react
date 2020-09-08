@@ -6,6 +6,7 @@
   position: absolute;
   z-index: 1;
   transition: all 0.5s ease;
+  height: 100vh;
   &--middle {
     width: 70%;
   }
@@ -14,6 +15,7 @@
     padding-bottom: 15px;
     border-bottom: 1px solid black;
     margin-bottom: 10px;
+    font-weight: bold;
     & div:first-child {
       width: 75px;
     }

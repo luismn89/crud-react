@@ -5,21 +5,10 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 const baseDir = __dirname;
-const dist = path.resolve(baseDir, "dist");
+const dist = path.resolve(baseDir, "public/css");
 const ENV = process.env.NODE_ENV;
 const isDev = ENV !== "production";
 
-const javascript = {
-  test: /\.js$/,
-  exclude: /(node_modules)/,
-  use: {
-    loader: "babel-loader",
-    options: {
-      presets: ["@babel/preset-env"],
-      plugins: ["@babel/plugin-transform-runtime"],
-    },
-  },
-};
 const styles = {
   test: /\.(sa|sc|c)ss$/,
   use: [
@@ -57,10 +46,9 @@ module.exports = {
   output: {
     path: dist,
     publicPath: dist,
-    filename: isDev ? "./js/scripts.js" : "./js/scripts.[hash].js",
   },
   module: {
-    rules: [styles, javascript],
+    rules: [styles],
   },
   optimization: {
     splitChunks: {
@@ -100,7 +88,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: `css/main.css`,
+      filename: `main.css`,
     }),
     new CleanWebpackPlugin({
       verbose: true,

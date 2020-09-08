@@ -4,7 +4,7 @@ import Item from "./Item";
 
 const ItemList = () => {
   const taskList = useSelector(({ taskList }) => taskList);
-
+  console.log(taskList);
   return (
     <>
       <div className="task-list__list-header">

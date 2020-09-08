@@ -2,7 +2,7 @@ const reducers = (state = {}, action) => {
   const { taskList } = state;
   switch (action.type) {
     case "SET_TASK_LIST": {
-      const newList = [...taskList, action.payload];
+      const newList = [...taskList, ...action.payload];
       return { ...state, taskList: newList };
     }
 
