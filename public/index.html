@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -24,12 +22,124 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
+  <title>React App</title>
+  <style>
+    .task {
+      display: flex;
+      width: 80%;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .task__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .task-list {
+      background-color: white;
+      padding: 20px;
+      box-shadow: 5px 0 5px gray;
+      width: 100%;
+      position: absolute;
+      z-index: 1;
+      transition: all 0.5s ease;
+    }
+
+    .task-list--middle {
+      width: 70%;
+    }
+
+    .task-list__list-header {
+      display: flex;
+      padding-bottom: 15px;
+      border-bottom: 1px solid black;
+      margin-bottom: 10px;
+    }
+
+    .task-list__list-header div:first-child {
+      width: 75px;
+    }
+
+    .task-list__item {
+      display: flex;
+      margin-bottom: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .task-list__item div:first-child {
+      width: 75px;
+    }
+
+    .task-list__item div:last-child {
+      width: 190px;
+      text-align: right;
+    }
+
+    .task-list__item div:last-child button {
+      margin-right: 10px;
+    }
+
+    .task-list__item p {
+      width: 70%;
+    }
+
+    .task-formContainer {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      background-color: #ccc;
+      z-index: -1;
+    }
+
+    .task-formContainer__form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .btn {
+      outline: none;
+      width: 75px;
+      height: 30px;
+      border: none;
+      border-radius: .5em;
+      color: white;
+      cursor: pointer;
+    }
+
+    .btn--add {
+      background-color: green;
+    }
+
+    .btn--edit {
+      background-color: darkcyan;
+    }
+
+    .btn--delete {
+      background-color: red;
+    }
+
+    .btn--cancel {
+      background-color: silver;
+      color: black;
+    }
+
+    .inputText {
+      padding: 10px;
+      border-radius: .5em;
+      margin-bottom: 10px;
+      border: 1px solid #333;
+    }
+  </style>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
@@ -39,5 +149,6 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-  </body>
+</body>
+
 </html>
