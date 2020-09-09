@@ -23,7 +23,7 @@ const Tasks = () => {
             description: title,
           };
         });
-      console.log(result);
+
       dispatch({
         type: "SET_TASK_LIST",
         payload: result,
