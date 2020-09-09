@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import Header from "./Header";
@@ -11,22 +11,26 @@ const Tasks = () => {
   const { activeForm } = useSelector((stage) => stage);
 
   const dispatch = useDispatch();
-  const fetchData = async () => {
-    const promise = await fetch(URL_API);
-    const response = await promise.json();
-    const result = response
-      .filter((item, i) => i < 10)
-      .map(({ title }) => {
-        return {
-          description: title,
-        };
+  useEffect(() => {
+    const fetchData = async () => {
+      const promise = await fetch(URL_API);
+      const response = await promise.json();
+      const result = response
+        .filter((item, i) => i < 7)
+        .map(({ title }) => {
+          return {
+            description: title,
+          };
+        });
+
+      dispatch({
+        type: "SET_TASK_LIST",
+        payload: result,
       });
-    dispatch({
-      type: "SET_TASK_LIST",
-      payload: result,
-    });
-  };
-  fetchData();
+    };
+    fetchData();
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <>
